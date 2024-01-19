@@ -37,7 +37,7 @@ class CoreModule(nn.Module):
 
         self.conv3x3 = nn.Conv2d(features, features, kernel_size=3, padding=1)
 
-        EC_combination = ['conv1-sobelx', 'conv1-sobelx', 'conv1-laplacian']
+        EC_combination = ['conv1-sobelx', 'conv1-sobely', 'conv1-laplacian']
         for i in range(len(EC_combination)):
             self.edgeconvs.append(nn.Sequential(
                 common.EdgeConv(EC_combination[i], features, features),
